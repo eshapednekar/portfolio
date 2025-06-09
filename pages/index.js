@@ -50,7 +50,7 @@ const aboutMeStyle = {
   color: '#fff',
   backgroundColor: 'transparent',
   borderRadius: '8px',
-  marginTop: '20px',
+  marginTop: '5px',
 };
 
 const workExperienceStyle = {
@@ -169,7 +169,7 @@ export default function Home() {
       </div>
       <div style={aboutMeStyle}>
         <h3>About Me</h3>
-        <p>
+        <p style={{marginTop: '20px'}}>
           Recently graduated from Penn State, I have a strong foundation in full-stack development,
           including HTML, CSS, JavaScript/TypeScript, and React for the frontend and C#, Java, and various SQL databases for the backend. I have worked on various projects, both personal and professional,
           that showcase my skills and creativity. In my next role, I’m looking for a fast-paced, product-focused environment where I can build meaningful features end-to-end and learn from strong engineers around me.
