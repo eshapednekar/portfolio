@@ -7,9 +7,10 @@ import 'react-vertical-timeline-component/style.min.css';
 const introStyle = {
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: 'start',
   textAlign: 'center',
   padding: '100px 50px',
+  margin: "0px 150px",
   backgroundColor: '#1a1a1a', // Dark background
   color: '#fff', // Light text
 };
@@ -329,6 +330,8 @@ export default function Home() {
     </li>
   </ul>
 </div>
+<div style={{ height: '100px' }}></div> 
     </div>
+    
   );
 }
