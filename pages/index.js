@@ -298,7 +298,7 @@ export default function Home() {
           A decentralized voting system that uses smart contracts to securely record and verify votes.
         </p>
         <a
-          href="https://voteguard-gamma.vercel.app/dashboard"
+          href="https://vote-guardian.vercel.app/dashboard"
           target="_blank"
           rel="noopener noreferrer"
           style={{ fontSize: '14px', lineHeight: '1.6', color: '#0070f3' }}
