@@ -112,7 +112,8 @@ const getStyles = (isMobile) => ({
     height: isMobile ? '40px' : '50px',
     borderRadius: '8px',
     objectFit: 'cover',
-    marginBottom: isMobile ? '10px' : '0', // Add spacing below image on mobile
+    marginBottom: isMobile ? '10px' : '0',
+    alignItems: "start"
   },
 
   projectDetailsStyle: {
