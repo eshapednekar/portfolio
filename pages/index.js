@@ -63,11 +63,23 @@ const getStyles = (isMobile) => ({
     borderRadius: '8px',
     marginTop: '20px',
   },
+  workExperienceHeadingStyle: {
+    fontSize: isMobile ? '16px' : '18px', // Smaller font size for mobile
+    fontWeight: 'bold',
+    marginBottom: '10px',
+    color: '#fff',
+  },
+  companyNameStyle: {
+    fontSize: isMobile ? '14px' : '16px', // Responsive font size
+    color: '#0070f3',
+    marginBottom: '10px',
+    textDecoration: 'none',
+  },
   techStackStyle: {
     display: 'flex',
     flexWrap: 'wrap',
     marginTop: '10px',
-    justifyContent: isMobile ? 'center' : 'start',
+    justifyContent: 'start',
   },
   tagStyle: {
     backgroundColor: '#0070f3',
@@ -143,6 +155,8 @@ const {
   linkStyle,
   aboutMeStyle,
   workExperienceStyle,
+  workExperienceHeadingStyle,
+  companyNameStyle, 
   techStackStyle,
   tagStyle,
   projectsStyle,
@@ -217,16 +231,16 @@ const {
             contentArrowStyle={{ borderRight: '7px solid #333' }}
             date="May 2024 - May 2025"
           >
-            <h4 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '10px' }}>
+            <h4 style={workExperienceHeadingStyle}>
               Junior Software Engineer
             </h4>
-            <h5 style={{ fontSize: '16px', color: '#0070f3', marginBottom: '10px' }}>
+            <h5 style={companyNameStyle}>
              <a href="https://www.linkedin.com/company/webstaurantstore-com/posts/?feedView=all" target="_blank"
               rel="noopener noreferrer">WebstaurantStore</a> 
             </h5>
             <p style={{ fontSize: '14px', lineHeight: '1.6' }}>
               Created a dashboard on the EDI team’s web app that included dynamic charts showing stats on
-              invoice success, failure, and throughput - reducing analyst response time by 50%. 
+              invoice success, failure, and throughput — reducing analyst response time by 50%. 
             </p>
             <div style={techStackStyle}>
               <span style={tagStyle}>React</span>
@@ -245,10 +259,10 @@ const {
             contentArrowStyle={{ borderRight: '7px solid #333' }}
             date="June 2023 - August 2023"
           >
-            <h4 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '10px' }}>
+            <h4 style={workExperienceHeadingStyle}>
               Web Development Intern
             </h4>
-            <h5 style={{ fontSize: '16px', color: '#0070f3', marginBottom: '10px' }}>
+            <h5 style={companyNameStyle}>
               <a href="https://www.linkedin.com/company/horse-s-mouth/" target="_blank"
               rel="noopener noreferrer">Horse's Mouth</a>
             </h5>
@@ -272,10 +286,10 @@ const {
             contentArrowStyle={{ borderRight: '7px solid #333' }}
             date="May 2022 - July 2022"
           >
-            <h4 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '10px' }}>
+            <h4 style={workExperienceHeadingStyle}>
               Process Optimization Intern
             </h4>
-            <h5 style={{ fontSize: '16px', color: '#0070f3', marginBottom: '10px' }}>
+            <h5 sstyle={companyNameStyle}>
               <a href="https://www.linkedin.com/company/entrib-technologies/" target="_blank"
               rel="noopener noreferrer">Entrib Analytics Tech</a>
             </h5>
