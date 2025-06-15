@@ -98,12 +98,12 @@ const getStyles = (isMobile) => ({
   },
   projectContainerStyle: {
     display: 'flex',
-    flexDirection: isMobile ? 'column' : 'row', // Stack vertically on mobile
-    alignItems: 'center',
+    flexDirection: 'row', // Stack vertically on mobile
+    alignItems: 'flex-start',
     padding: '20px',
     backgroundColor: 'transparent',
     borderRadius: '8px',
-    textAlign: isMobile ? 'center' : 'left',
+    textAlign: 'left',
     marginBottom: '10px', // Add spacing between project containers
   },
 
@@ -113,14 +113,15 @@ const getStyles = (isMobile) => ({
     borderRadius: '8px',
     objectFit: 'cover',
     marginBottom: isMobile ? '10px' : '0',
-    alignItems: "start"
+    alignItems: "start",
+    marginRight: "20px"
   },
 
   projectDetailsStyle: {
     display: 'flex',
     flexDirection: 'column',
     marginLeft: isMobile ? '0' : '20px', // Remove left margin on mobile
-    alignItems: 'start'
+    alignItems: 'flex-start'
   },
 });
 
