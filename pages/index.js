@@ -119,7 +119,7 @@ const getStyles = (isMobile) => ({
     display: 'flex',
     flexDirection: 'column',
     marginLeft: isMobile ? '0' : '20px', // Remove left margin on mobile
-    alignItems: isMobile ? 'center' : 'start', // Center details on mobile
+    alignItems: 'start'
   },
 });
 
