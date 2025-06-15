@@ -4,125 +4,151 @@ import Head from 'next/head';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 
-const introStyle = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'start',
-  textAlign: 'center',
-  padding: '100px 50px',
-  margin: "0px 150px",
-  backgroundColor: '#1a1a1a', // Dark background
-  color: '#fff', // Light text
-};
+const getStyles = (isMobile) => ({
+  introStyle: {
+    display: 'flex',
+    flexDirection: isMobile ? 'column' : 'row',
+    alignItems: 'center',
+    justifyContent: isMobile ? 'center' : 'start',
+    textAlign: isMobile ? 'center' : 'left',
+    padding: isMobile ? '50px 20px' : '100px 50px',
+    margin: isMobile ? '0 20px' : '0 150px',
+    backgroundColor: '#1a1a1a',
+    color: '#fff',
+  },
+  profilePicStyle: {
+    width: isMobile ? '80px' : '120px',
+    height: isMobile ? '80px' : '120px',
+    borderRadius: '50%',
+    marginBottom: isMobile ? '20px' : '0',
+    marginRight: isMobile ? '0' : '20px',
+  },
+  headerStyle: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: isMobile ? 'center' : 'start',
+    justifyContent: 'center',
+    textAlign: isMobile ? 'center' : 'left',
+    fontFamily: 'Arial, sans-serif',
+    fontSize: isMobile ? '16px' : '22px',
+    color: '#fff',
+  },
+  linkStyle: {
+    color: '#0070f3',
+    textDecoration: 'none',
+    fontSize: isMobile ? '14px' : '16px',
+    marginTop: '10px',
+    padding: isMobile ? '8px 15px' : '10px 20px',
+    transition: 'background-color 0.3s, color 0.3s',
+  },
+  aboutMeStyle: {
+    padding: isMobile ? '20px' : '40px 50px',
+    margin: isMobile ? '20px 10px' : '50px 150px',
+    textAlign: 'left',
+    fontFamily: 'Arial, sans-serif',
+    fontSize: isMobile ? '14px' : '18px',
+    color: '#fff',
+    backgroundColor: 'transparent',
+    borderRadius: '8px',
+    marginTop: '5px',
+  },
+  workExperienceStyle: {
+    padding: isMobile ? '20px' : '40px 50px',
+    margin: isMobile ? '20px 10px' : '50px 150px',
+    textAlign: 'left',
+    fontFamily: 'Arial, sans-serif',
+    fontSize: isMobile ? '14px' : '18px',
+    color: '#fff',
+    backgroundColor: 'transparent',
+    borderRadius: '8px',
+    marginTop: '20px',
+  },
+  techStackStyle: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    marginTop: '10px',
+    justifyContent: isMobile ? 'center' : 'start',
+  },
+  tagStyle: {
+    backgroundColor: '#0070f3',
+    borderRadius: '20px',
+    padding: isMobile ? '3px 10px' : '5px 15px',
+    margin: '5px',
+    fontSize: isMobile ? '12px' : '14px',
+    color: '#fff',
+    fontFamily: 'Arial, sans-serif',
+    cursor: 'default',
+    transition: 'background-color 0.3s, color 0.3s',
+  },
+  projectsStyle: {
+    padding: isMobile ? '20px' : '40px 50px',
+    margin: isMobile ? '20px 10px' : '50px 150px',
+    textAlign: 'left',
+    fontFamily: 'Arial, sans-serif',
+    fontSize: isMobile ? '14px' : '18px',
+    color: '#fff',
+    backgroundColor: 'transparent',
+    borderRadius: '8px',
+    marginTop: '20px',
+    listStyleType: 'none',
+    padding: 0,
+    display: 'flex',
+    flexDirection: 'column', // Stack projects vertically
+    gap: '20px', // Add spacing between projects
+  },
+  projectContainerStyle: {
+    display: 'flex',
+    flexDirection: isMobile ? 'column' : 'row', // Stack vertically on mobile
+    alignItems: 'center',
+    padding: '20px',
+    backgroundColor: 'transparent',
+    borderRadius: '8px',
+    textAlign: isMobile ? 'center' : 'left',
+    marginBottom: '10px', // Add spacing between project containers
+  },
 
-const profilePicStyle = {
-  width: '120px',
-  height: '120px',
-  borderRadius: '50%',
-  marginRight: '20px',
-};
+  projectImageStyle: {
+    width: isMobile ? '60px' : '70px', // Smaller image size for mobile
+    height: isMobile ? '40px' : '50px',
+    borderRadius: '8px',
+    objectFit: 'cover',
+    marginBottom: isMobile ? '10px' : '0', // Add spacing below image on mobile
+  },
 
-const headerStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'start',
-  justifyContent: 'center',
-  textAlign: 'left',
-  fontFamily: 'Arial, sans-serif',
-  fontSize: '22px',
-  color: '#fff',
-};
+  projectDetailsStyle: {
+    display: 'flex',
+    flexDirection: 'column',
+    marginLeft: isMobile ? '0' : '20px', // Remove left margin on mobile
+    alignItems: isMobile ? 'center' : 'start', // Center details on mobile
+  },
+});
 
-const linkStyle = {
-  color: '#0070f3',
-  textDecoration: 'none',
-  fontSize: '16px',
-  marginTop: '10px',
-  padding: '10px 20px',
-  transition: 'background-color 0.3s, color 0.3s',
-};
-
-const aboutMeStyle = {
-  padding: '40px 50px',
-  margin: '50px 150px',
-  textAlign: 'left',
-  fontFamily: 'Arial, sans-serif',
-  fontSize: '18px',
-  color: '#fff',
-  backgroundColor: 'transparent',
-  borderRadius: '8px',
-  marginTop: '5px',
-};
-
-const workExperienceStyle = {
-  padding: '40px 50px',
-  margin: '50px 150px',
-  textAlign: 'left',
-  fontFamily: 'Arial, sans-serif',
-  fontSize: '18px',
-  color: '#fff',
-  backgroundColor: 'transparent', 
-  borderRadius: '8px',
-  marginTop: '20px',
-};
-
-const techStackStyle = {
-  display: 'flex',
-  flexWrap: 'wrap',
-  marginTop: '10px',
-};
-
-const tagStyle = {
-  backgroundColor: '#0070f3',
-  borderRadius: '20px',
-  padding: '5px 15px',
-  margin: '5px',
-  fontSize: '14px',
-  color: '#fff',
-  fontFamily: 'Arial, sans-serif',
-  cursor: 'default',
-  transition: 'background-color 0.3s, color 0.3s',
-};
-
-const projectsStyle = {
-  padding: '40px 50px',
-  margin: '50px 150px',
-  textAlign: 'left',
-  fontFamily: 'Arial, sans-serif',
-  fontSize: '18px',
-  color: '#fff',
-  backgroundColor: 'transparent',
-  borderRadius: '8px',
-  marginTop: '20px',
-  listStyleType: 'none',
-  padding: 0,
-  display: 'flex',
-  flexDirection: 'column', // Stack projects vertically
-  gap: '20px', // Add spacing between projects
-};
-
-const projectContainerStyle = {
-  display: 'flex',
-  alignItems: 'center',
-  padding: '20px',
-  backgroundColor: 'transparent', 
-  borderRadius: '8px',
-};
-
-const projectImageStyle = {
-  width: '70px',
-  height: '50px',
-  borderRadius: '8px',
-  objectFit: 'cover',
-};
-
-const projectDetailsStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-  marginLeft: '20px',
-};
 
 export default function Home() {
+const [isMobile, setIsMobile] = useState(false);
+
+useEffect(() => {
+  const checkScreenSize = () => setIsMobile(window.innerWidth < 768);
+  checkScreenSize();
+  window.addEventListener("resize", checkScreenSize);
+  return () => window.removeEventListener("resize", checkScreenSize);
+}, []);
+
+const {
+  introStyle,
+  profilePicStyle,
+  headerStyle,
+  linkStyle,
+  aboutMeStyle,
+  workExperienceStyle,
+  techStackStyle,
+  tagStyle,
+  projectsStyle,
+  projectContainerStyle,
+  projectImageStyle,
+  projectDetailsStyle,
+} = getStyles(isMobile);
+
   return (
     <div style= {{backgroundColor: "#1a1a1a", width:"100vw", height: "100vh", overflowY: "scroll"}}>
       <Head>
@@ -268,7 +294,7 @@ export default function Home() {
     <li style={projectContainerStyle}>
       <img
         style={projectImageStyle}
-        src="https://ipfs.io/ipfs/bafkreidkwo4i5u4xehtympnzxe2xdkqo6thcvgw7xuivswv2qa7665whpu/"
+        src="https://ipfs.io/ipfs/bafkreiaxmqbtxti66gjf4ynpwiidz7ciidl33nlkzhvpvntwzbtxbhw7le/"
         alt="Stonks App"
       />
       <div style={projectDetailsStyle}>
@@ -289,7 +315,7 @@ export default function Home() {
     <li style={projectContainerStyle}>
       <img
         style={projectImageStyle}
-        src="https://ipfs.io/ipfs/bafkreicohpng7gxnmzdvcauml36wwg7abojnlv2z7jmt23zzcshe3lijna/"
+        src="https://ipfs.io/ipfs/bafkreidilbllmejrt3k2s2jfpajvr2uhwywoqg7zbrjcqxwqyldtpkbaoe/"
         alt="VoteGuard App"
       />
       <div style={projectDetailsStyle}>
